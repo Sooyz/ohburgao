@@ -148,7 +148,15 @@ class Banco {
      */
 
     public function listaDados($tabela, $id = null, $order = null, $campo_where = null) {
-        (($id > 0) ? $where = " WHERE $campo_where in ($id)" : $where = null );
+        (($id != null) ? $where = " WHERE $campo_where in ($id)" : $where = null );
+        (($order != '') ? $order = " ORDER BY {$order}" : $order = null);
+
+        $this->sql = " SELECT * FROM $tabela $where $order ";
+        return $this->query();
+    }
+
+    public function listaDadosWhere($tabela, $id = null, $order = null, $campo_where = null) {
+        (($id != null) ? $where = " WHERE $campo_where = '$id'" : $where = null );
         (($order != '') ? $order = " ORDER BY {$order}" : $order = null);
 
         $this->sql = " SELECT * FROM $tabela $where $order ";
