@@ -59,6 +59,12 @@ class Atendimento extends MAtendimento {
         echo json_encode($arr);
     }
 
+
+    public function listaPedidosCozinha() {
+       $result = $this->listaPedidosA();
+       return $result;
+    }
+
     public function precoPromo() {
         $id = $_POST['id_promocao'];
 

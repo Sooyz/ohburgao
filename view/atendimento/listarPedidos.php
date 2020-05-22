@@ -35,10 +35,10 @@
                 while ($row = mysqli_fetch_array($dados)) {
                     $id_pedido = $row['id_pedido'];
                     ?>
-                    <tr>
+                    <tr style="height:300px;">
                         <td><?= $id_pedido; ?></td>
                         <td><?= $row['str_nome']; ?></td>
-                        <td>
+                        <td >
                             <a class="nav-link btn-vermelho-01"  href="#" data-toggle="modal" data-doc="<?= $id_pedido; ?>"  data-target="#visuPedido">
                                 <i class="fa fa-edit"></i> Visualizar Pedido
                             </a>
@@ -136,7 +136,7 @@
                             obj.local[i],
                             obj.funcoes[i]
                         ]).draw();
-                        //Atualizando contado
+                        //Atualizando contador
                         $('#contador').val(obj.contagem);
                     }
 
